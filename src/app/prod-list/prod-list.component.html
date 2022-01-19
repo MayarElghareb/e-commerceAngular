@@ -1,0 +1,20 @@
+
+<div class="container my-5">
+  <div class="row">
+  <div class="col-lg-8 mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div *ngFor="let product of productList" class="col">
+        <app-prod-item
+          [productItem]="product"
+          (sendProduct) = "receiveProduct($event)"
+          (sendCart) = "addToFav(product)"
+        ></app-prod-item>
+        
+      </div>
+    </div>
+    </div>
+    <div class="favlist col-lg-4">
+      <app-fav-products></app-fav-products>
+    </div>
+  </div>
+</div>

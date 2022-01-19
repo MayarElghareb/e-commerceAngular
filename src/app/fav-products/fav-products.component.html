@@ -1,0 +1,12 @@
+<div class="fav mt-4">
+    <h3>total : {{favlist.length}}</h3>
+    <div class="container d-flex flex-wrap">
+        <div class="favCard" *ngFor="let item of favlist  let i = index">
+            <img [src]="item.image"  alt="img">
+            <div>
+                <p class="w-100">{{item.title}}</p>
+                <button (click)="remove(item)" class="btn btn-danger">remove</button>
+            </div>
+        </div>
+    </div>
+</div>

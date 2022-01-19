@@ -1,0 +1,17 @@
+
+<div class="card h-100">
+    <img [src]="productItem.image" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ productItem.title  }}</h5>
+      <p class="card-text">
+        {{ productItem.category }}
+      </p>
+      <p class="card-text">
+        {{ productItem.price | currency }}
+      </p>
+   
+      <button class="btn btn-primary " (click) = "sendDataToParent()"    >View details</button>
+      <button class="btn btn-primary"   (click) = "sendCartToParent()" >Add to fav</button>
+    </div>
+  </div>
+  

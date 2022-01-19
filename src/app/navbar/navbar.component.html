@@ -1,0 +1,19 @@
+
+<div class="container-fluid">
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <li class="nav-item">
+    <a class="navbar-brand" routerLink="/">Products</a>
+    </li>
+    <li class="nav-item">
+      <!-- <a class="nav-link" routerLink ="/cart">Wishlist Counter : {{wishlistCounter | async}}</a> -->
+      <a class="nav-link" routerLink ="/cart">{{totalItem}}</a>
+
+    </li>
+    <form class="form-inline">
+      
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink = "/register">Register</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink ="/login"  >Login</button>
+    </form>
+  </nav>
+
+</div>

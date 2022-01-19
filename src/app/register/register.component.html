@@ -1,0 +1,171 @@
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+        <form class="mx-1 mx-md-4" [formGroup]="registerForm" (ngSubmit)="submitReactiveForm()">
+            <label class="form-label" for="form3Example1c">Your Name</label>
+            <div class="">
+
+
+                <div class="form-outline ">
+                    <input type="text" class="form-control" id="registerName" name="registerName"
+                        formControlName="registerName"
+                        [ngClass]="registerFormControls.registerName.touched && !registerFormControls.registerName.valid" />
+
+                </div>
+                <div *ngIf="
+                        registerFormControls.registerName.touched &&
+                        !registerFormControls.registerName.valid
+                      ">
+                    <small class="text-danger" *ngIf="registerFormControls.registerName.errors.required">
+                        This field is required
+                    </small>
+                    <small class="text-danger" *ngIf="registerFormControls.registerName.errors.minlength">
+                        Min. Length is 3
+                    </small>
+                </div>
+            </div>
+            <!--start email-->
+            <label class="form-label" for="form3Example3c">Your Email</label>
+            <div class="">
+
+
+                <div class="form-outline ">
+                    <input type="text" class="form-control" id="registerEmail" name="registerEmail"
+                        formControlName="registerEmail"
+                        [ngClass]="registerFormControls.registerEmail.touched && !registerFormControls.registerEmail.valid" />
+
+                </div>
+                <div *ngIf="
+                          registerFormControls.registerEmail.touched &&
+                          !registerFormControls.registerEmail.valid
+                        ">
+                    <small class="text-danger" *ngIf="registerFormControls.registerEmail.errors.required">
+                        This field is required
+                    </small>
+                    <small class="text-danger" *ngIf="registerFormControls.registerEmail.errors.email">
+                        not valid email
+                    </small>
+                </div>
+            </div>
+
+            <!--start user name-->
+            <label class="form-label" for="form3Example1c">user Name</label>
+            <div class="">
+
+
+                <div class="form-outline ">
+                    <input type="text" class="form-control" id="registerUser" name="registerUser"
+                        formControlName="registerUser"
+                        [ngClass]="registerFormControls.registerUser.touched && !registerFormControls.registerUser.valid" />
+
+                </div>
+                <div *ngIf="
+    registerFormControls.registerUser.touched &&
+    !registerFormControls.registerUser.valid
+  ">
+                    <small class="text-danger" *ngIf="registerFormControls.registerUser.errors.required">
+                        This field is required
+                    </small>
+                    <small class="text-danger" *ngIf="registerFormControls.registerUser.errors.pattern">
+                        no spaces
+                    </small>
+                </div>
+            </div>
+            <!--end user-->
+            <!--start pass-->
+            <label class="form-label" for="form3Example4c">Password</label>
+            <div class=" ">
+
+
+                <div class="form-outline ">
+                    <input type="text" class="form-control" id="password" name="password" formControlName="password"
+                        [ngClass]="registerFormControls.password.touched && !registerFormControls.password.valid" />
+
+                </div>
+                <div *ngIf="
+                          registerFormControls.password.touched &&
+                          !registerFormControls.password.valid
+                        ">
+                    <small class="text-danger" *ngIf="registerFormControls.password.errors.required">
+                        This field is required
+                    </small>
+                    <small class="text-danger" *ngIf="registerFormControls.password.errors.minlength">
+                        at least 8 character
+                    </small>
+                    <small class="text-danger" *ngIf="registerFormControls.password.errors.pattern">
+                        must contain at least one small,digit , special character
+                    </small>
+                </div>
+            </div>
+
+            <!--end pass-->
+
+
+
+            <label class="form-label" for="form3Example4cd">Repeat your password</label>
+            <div class=" ">
+
+
+                <div class="form-outline ">
+                    <input type="text" class="form-control" id="password" name="password"
+                        formControlName="confirmPassword"
+                        [ngClass]="registerFormControls.confirmPassword.touched && !registerFormControls.confirmPassword.valid" />
+
+                </div>
+                <div *ngIf="
+                          registerFormControls.confirmPassword.touched &&
+                          !registerFormControls.confirmPassword.valid
+                        ">
+
+
+                    <small class="text-danger" *ngIf="registerFormControls.confirmPassword.errors.MatchPassword ">
+                        password dont match
+                    </small>
+                </div>
+            </div>
+
+
+
+
+
+            <div formArrayName="credentials"
+                *ngFor="let creds of registerForm.controls.credentials.value; let i = index">
+                <label class="form-label" for="form3Example4c"></label>
+                <div [formGroupName]="i">
+
+
+
+
+                    <input type="text" class="form-control" formControlName="address" placeholder="adderss">
+                    <small class="text-danger" *ngIf="creds.get('address').errors?.required ">
+                        password dont match
+                    </small>
+                    <input type="text" class="form-control" formControlName="country" placeholder="country">
+                    <input type="text" class="form-control" formControlName="city" placeholder="city">
+                    <input type="text" class="form-control" formControlName="street" placeholder="street">
+
+
+
+                </div>
+            </div>
+
+
+            <button (click)="addCreds()">Add Address</button>
+
+
+
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button type="submit" class="btn btn-primary btn-lg">Register</button>
+            </div>
+
+        </form>
+
+
+
+
+
+    </div>
+
+</div>

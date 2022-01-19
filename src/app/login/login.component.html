@@ -1,0 +1,50 @@
+<div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="submitForm(loginForm)">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input class="form-control" id="loginName" aria-describedby="emailHelp"
+            name="loginName"
+            #loginName="ngModel"
+            ngModel ="loginForm.loginName"
+                placeholder="Enter email"
+                required
+                minlength="3"
+                maxlength="10"
+                
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                </div>
+                <div *ngIf="loginName.touched && !loginName.valid">
+                    <small class="text-danger" *ngIf="loginName.errors.required">
+                      This field is required
+                    </small>
+                    <small class="text-danger" *ngIf="loginName.errors.minlength">
+                      Min. Length is 3
+                    </small>
+                    <small class="text-danger" *ngIf="loginName.errors.pattern">
+                        write valid email
+                      </small>
+                  </div>
+       
+                  <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" 
+            name="passName"
+            #passName="ngModel"
+            ngModel ="loginForm.passName"
+              
+                required
+                >
+        </div>
+        <div *ngIf="passName.touched && !passName.valid">
+            <small class="text-danger" *ngIf="passName.errors.required">
+              This field is required
+            </small>
+          
+          </div>
+
+       
+     
+   
+        <button type="submit" class="btn btn-primary mt-5">Submit</button>
+    </form>
+
